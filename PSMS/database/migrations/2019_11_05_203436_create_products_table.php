@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
+            $table->unsignedInteger('user_id')->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
