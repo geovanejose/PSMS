@@ -64,9 +64,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $products = Product::all();
+        if(auth()->check())
+        {
+          $products = Product::all();
 
-     return view('index', compact('products'));
+            return view('index', compact('products'));
+        }
+         return redirect()->route('login');
     }
 
     /**

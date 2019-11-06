@@ -12,10 +12,10 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
+  <h2 class="text-center">Products</h2><br>
   <table class="table table-striped">
     <thead>
         <tr>
-          <td>ID</td>
           <td>Name</td>
           <td>Description</td>
           <td>User-id</td>
@@ -26,7 +26,6 @@
     <tbody>
         @foreach($products as $product)
         <tr>
-            <td>{{$product->id}}</td>
             <td>{{$product->name}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->user_id}}</td>
