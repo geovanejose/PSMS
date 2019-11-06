@@ -1,11 +1,11 @@
 conf:
-	sudo apt-get install php7.2 php7.2-mbstring php7.2-mysql php7.2-intl php7.2-xml composer # isso só serve pra sistemas que usam o apt
-	composer install --no-scripts
+	cd PSMS && sudo apt-get install php7.2 php7.2-mbstring php7.2-mysql php7.2-intl php7.2-xml composer # isso só serve pra sistemas que usam o apt
+	cd PSMS && composer install --no-scripts
 	# npm install
 	# npm run dev
-	cp .env.example .env # copia o example
-	php artisan key:generate # gera a chave
-	sudo apt-get install mysql-server-5.7 # instala o bd
+	cd PSMS && cp .env.example .env # copia o example
+	cd PSMS && php artisan key:generate # gera a chave
+	cd PSMS && sudo apt-get install mysql-server-5.7 # instala o bd
 	$(MAKE) bd-conf # roda a regra do bd-conf
 
 bd-conf:
