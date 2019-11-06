@@ -14,9 +14,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::all();
+        if(auth()->check())
+        {
+          $products = Product::all();
 
-        return view('index', compact('products'));
+          return view('index', compact('products'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -26,7 +30,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('create');
+        if(auth()->check())
+        {
+         return view('create');
+         }
+         return redirect()->route('login');
     }
 
     /**
@@ -69,9 +77,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-         $product = Product::findOrFail($id);
+        if(auth()->check())
+        {
+             $product = Product::findOrFail($id);
 
-     return view('edit', compact('product'));
+         return view('edit', compact('product'));
+        }
+        return redirect()->route('login');
     }
 
     /**
@@ -101,10 +113,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+    if(auth()->check())
+    {     
         $product = Product::findOrFail($id);
         $product->delete();
 
         return redirect('/products')->with('success', 'Product is successfully deleted');
+    }
+     return redirect()->route('login');
     
     }
 }
