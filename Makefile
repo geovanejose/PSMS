@@ -9,9 +9,9 @@ conf:
 	$(MAKE) bd-conf # roda a regra do bd-conf
 
 bd-conf:
-	mysql -u root -p --execute="drop database if exists PSMS; create database PSMS; drop user if exists 'pro_seletivo'; create user 'pro_seletivo' identified by 'pro_133'; grant all privileges on PSMS.* to 'pro_seletivo';"
+	mysql -u root -p --execute="drop database if exists PSMS; create database PSMS; drop user if exists 'seletivo'; create user 'seletivo' identified by '123'; grant all privileges on PSMS.* to 'seletivo';"
 	cd PSMS && sed -i 's/DB_DATABASE.*/DB_DATABASE=PSMS/' .env # ajusta o nome do banco no .env
-	cd PSMS && sed -i 's/DB_USERNAME.*/DB_USERNAME=pro_seletivo/' .env # ajusta o nome de usuário no .env
-	cd PSMS && sed -i 's/DB_PASSWORD.*/DB_PASSWORD=pro_123/' .env # ajusta a senha no .env
+	cd PSMS && sed -i 's/DB_USERNAME.*/DB_USERNAME=seletivo/' .env # ajusta o nome de usuário no .env
+	cd PSMS && sed -i 's/DB_PASSWORD.*/DB_PASSWORD=123/' .env # ajusta a senha no .env
 	cd PSMS && php artisan migrate:refresh --seed
 	cd PSMS && php artisan serve
