@@ -68,7 +68,7 @@
               <input type="number" class="form-control" min="1"  max="10000" name="quantidade"/>
           </div>
           <div class="form-group">
-            <label for="product_id">Disciplina</label>
+            <label for="product_id">Product</label>
             <select class="form-control" name="product_id" required>
                 <option disabled selected>Select Product</option>
                 @foreach ($products as $product)
